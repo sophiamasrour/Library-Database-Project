@@ -1,3 +1,8 @@
+<?php
+require("connect-db.php");      // include("connect-db.php");     
+?>
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -28,8 +33,13 @@
               <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Title</th>
-                <th scope="col">Author</th>
+                <th scope="col">Author(s)</th>
                 <th scope="col">Year Published</th>
+                <th scope="col">Pages</th>
+                <!-- change this to ratio of checked out / total quantity when user functionality is added -->
+                <th scope="col">Available</th> 
+                <!-- will be added when users are able to rate books -->
+                <!-- <th scope="col">Rating</th> -->
               </tr>
             </thead>
             <tbody>
@@ -43,7 +53,7 @@
                 <th scope="row">2</th>
                 <td>Jacob</td>
                 <td>Thornton</td>
-                <td>@fat</td>
+                <td>@ftra</td>
               </tr>
               <tr>
                 <th scope="row">3</th>
@@ -62,3 +72,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>
+
+<?php
+try {
+    $conn = new PDO('mysql:host=localhost;dbname')
+}
+?>
