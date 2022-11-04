@@ -2,22 +2,22 @@
 // Remember to start the database server (or GCP SQL instance) before trying to connect to it
 ////////////////////////////////////////////
 /** F22, PHP (on Google Standard App Engine) connect to MySQL instance (GCP) **/
-// $username = 'root';                       // or your username
-// $password = 'your-root-password';     
-// $host = 'instance-connection-name';       // e.g., 'cs4750:us-east4:db-demo'; 
-// $dbname = 'your-database-name';           // e.g., 'guestbook';
-// $dsn = "mysql:unix_socket=/cloudsql/instance-connection-name;dbname=your-database-name";
+//$username = 'root';                       // or your username
+//$password = 'password';     
+//$host = 'cs4750db-366000:us-east4:db-4750-library';       // e.g., 'cs4750:us-east4:db-demo'; 
+//$dbname = 'library';           // e.g., 'guestbook';
+//$dsn = "mysql:unix_socket=/cloudsql/cs4750db-366000:us-east4:db-4750-library;dbname=library";
 //       e.g., "mysql:unix_socket=/cloudsql/cs4750:us-east4:db-demo;dbname=guestbook";
 
 // to get instance connection name, go to GCP SQL overview page
 ////////////////////////////////////////////
 
 /** F22, PHP (on local XAMPP or CS server) connect to MySQL instance (GCP) **/
-// $username = 'root';
-// $password = 'your-root-password';
-// $host = 'instance-connection-name';       // e.g., 'cs4750:us-east4:db-demo'; 
-// $dbname = 'your-database-name;;           // e.g., 'guestbook';
-// $dsn = "mysql:host=your-SQL-public-IP-address;dbname=your-database-name";   // connect PHP (XAMPP) to DB (GCP)
+ $username = 'root';
+ $password = 'password';
+ $host = 'cs4750db-366000:us-east4:db-4750-library';       // e.g., 'cs4750:us-east4:db-demo'; 
+ $dbname = 'library';           // e.g., 'guestbook';
+ $dsn = "mysql:host=34.145.214.116;dbname=library";   // connect PHP (XAMPP) to DB (GCP)
 //       e.g., "mysql:host=99.99.999.99;dbname=$dbname";   
 
 // to get public IP addres of the SQL instance, go to GCP SQL overview page

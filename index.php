@@ -1,11 +1,11 @@
-<?php
-require("connect-db.php");      // include("connect-db.php");     
-?>
 
 
 <!doctype html>
 <html lang="en">
   <head>
+    <?php require("connect-db.php"); ?>
+    <?php require("book-db.php"); ?>
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -33,37 +33,37 @@ require("connect-db.php");      // include("connect-db.php");
               <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Title</th>
-                <th scope="col">Author(s)</th>
                 <th scope="col">Year Published</th>
                 <th scope="col">Pages</th>
                 <!-- change this to ratio of checked out / total quantity when user functionality is added -->
-                <th scope="col">Available</th> 
+                <th scope="col">Available</th>
                 <!-- will be added when users are able to rate books -->
                 <!-- <th scope="col">Rating</th> -->
               </tr>
             </thead>
-            <tbody>
+            <?php $bookList = getAllBooks(); ?>
+            <?php foreach ($bookList as $book): ?>
               <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <td><?php echo $book['itemID']?></td>
+                <td><?php echo $book['title']?></td>
+                <td><?php echo $book['publisher']?></td>
+                <td><?php echo $book['numberOfPages']?></td>
+                <td><?php echo $book['quantityAvailable']?></td>
+
               </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@ftra</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
+            <?php endforeach; ?>
             </tbody>
           </table>
     </div>
+
+  
+     
+    ?>
+
+    <?php
+    $bookList = getAllBooks();
+    var_dump($bookList);  
+    ?>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -72,9 +72,3 @@ require("connect-db.php");      // include("connect-db.php");
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>
-
-<?php
-try {
-    $conn = new PDO('mysql:host=localhost;dbname')
-}
-?>
