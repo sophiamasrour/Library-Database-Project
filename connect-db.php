@@ -13,11 +13,11 @@
 ////////////////////////////////////////////
 
 /** F22, PHP (on local XAMPP or CS server) connect to MySQL instance (GCP) **/
- $username = 'root';
- $password = 'password';
- $host = 'cs4750db-366000:us-east4:db-4750-library';       // e.g., 'cs4750:us-east4:db-demo'; 
- $dbname = 'library';           // e.g., 'guestbook';
- $dsn = "mysql:host=34.145.214.116;dbname=library";   // connect PHP (XAMPP) to DB (GCP)
+ //$username = 'root';
+ //$password = 'password';
+ //$host = 'cs4750db-366000:us-east4:db-4750-library';       // e.g., 'cs4750:us-east4:db-demo'; 
+ //$dbname = 'library';           // e.g., 'guestbook';
+ //$dsn = "mysql:host=34.145.214.116;dbname=library";   // connect PHP (XAMPP) to DB (GCP)
 //       e.g., "mysql:host=99.99.999.99;dbname=$dbname";   
 
 // to get public IP addres of the SQL instance, go to GCP SQL overview page
@@ -38,11 +38,11 @@
 ////////////////////////////////////////////
 
 /** F22, PHP (on GCP, local XAMPP, or CS server) connect to MySQL (on CS server) **/
-// $username = 'your-computingID'; 
-// $password = 'your-mysql-password';
-// $host = 'mysql01.cs.virginia.edu';
-// $dbname = 'your-computingID';
-// $dsn = "mysql:host=$host;dbname=$dbname";
+ $username = 'sim7mfv'; 
+ $password = 'cs4750';
+ $host = 'mysql01.cs.virginia.edu';
+ $dbname = 'sim7mfv';
+ $dsn = "mysql:host=$host;dbname=$dbname";
 
 ////////////////////////////////////////////
 
