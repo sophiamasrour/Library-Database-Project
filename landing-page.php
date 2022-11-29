@@ -18,7 +18,22 @@ if(empty($email)){
 }
 
 if(empty($email)){
-  $errorMsg[0][] = 'Password required';
+  $errorMsg[1][] = 'Password required';
+}
+
+if(empty(errorMsg)){
+
+  try{
+    $select_stmt = $db->prepare("SELECT email FROM Users WHERE email = :email ");
+    $select_stmt->execute([':email' => $email]);
+    $row = $select_stmt->fetch(PDO::FETCH_ASSOC);
+
+    if(isset($row['email'] === $email)){
+  }
+  catch(PDOException $e){
+    $pdoError = $e->getMessage();
+  }
+
 }
 
 
@@ -164,7 +179,7 @@ if(empty($email)){
     }
 
     ?>
-    
+
       <label for="inputPassword" class="sr-only">Password</label>
       <input type="password" name="member-password" class="form-control" placeholder="Password">
 

@@ -36,7 +36,7 @@ function addUser($userID, $name, $email, $phone)
 function getAllBooks()
 {
     global $db;
-    $query = "SELECT * FROM books";
+    $query = "SELECT * FROM Books";
     $statement = $db->prepare($query);
     $statement->execute();
     $result = $statement->fetchAll();
