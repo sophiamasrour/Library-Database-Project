@@ -1,6 +1,14 @@
+<?php
+require_once("connect-db.php");
+session_start();
+
+
+ 
+?>
+
 <?php include_once("connect-db.php"); ?>
-  <?php include_once("book-db.php"); ?>
-    <?php include("search.php"); ?>
+<?php include_once("book-db.php"); ?>
+<?php include("search.php"); ?>
 
 <?php if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
@@ -28,6 +36,14 @@ else if (!empty($_POST['btnAction']) && $_POST['btnAction'] == 'Delete')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <title>ABC Library</title>
+
+    <style>
+      {
+        .member-or-employee {
+          
+        }
+      }
+    </style>
   </head>
   <body>
     <div>

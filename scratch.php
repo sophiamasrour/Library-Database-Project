@@ -5,7 +5,7 @@ session_start();
 if(isset($_REQUEST['register_btn'])) {
 
     $name = filter_var($_REQUEST['name'], FILTER_SANITIZE_STRING);
-    $email = filter_var(strtolower($_REQUEST['email']), FILTER_SANITIZE_EMAIL);
+    $email = filter_var($_REQUEST['email'], FILTER_SANITIZE_EMAIL);
     $password = strip_tags($_REQUEST['password']);
 
     if(empty($name)){
@@ -55,7 +55,7 @@ if(isset($_REQUEST['register_btn'])) {
         
                     )
                 ) {
-                    header("location: user-homepage.php");
+                    header("location: index.php");
                 }
             }
         }
@@ -78,6 +78,11 @@ if(isset($_REQUEST['register_btn'])) {
 	<title>Register</title>
 </head>
 <body>
+
+<nav class="navbar navbar-light bg-light">
+      <span class="navbar-brand mb-0 h1" style="margin-left:10px; font-size:30px ">ABC Library</span>
+    </nav>
+
 	<div class="container">
 		
 		<form action="register.php" method="post">
@@ -129,7 +134,7 @@ if(isset($_REQUEST['register_btn'])) {
             
 			<button type="submit" name="register_btn" class="btn btn-primary">Register Account</button>
 		</form>
-		Already Have an Account? <a class="register" href="index.php">Login Instead</a>
+		Already Have an Account? <a class="register" href="landing-page.php">Login Instead</a>
 	</div>
 </body>
 </html>
