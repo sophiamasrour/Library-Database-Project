@@ -9,11 +9,32 @@ include('connect-db.php');
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <style>
+        @media (min-width: 768px){
+    .input-group-btn{
+    width: 1% !important;
+    }
+    }
+        .logout {
+            margin:10px;
+            left:250px;
+            float:left;
+        }
+
+
+
+        .container {
+            margin-top: 50px;
+        }
+    </style>
   </head>
   <body>
-    <nav class="navbar navbar-light bg-light">
-        <span class="navbar-brand mb-0 h1" style="margin-left:10px; font-size:30px ">ABC Library Admin</span>
-        </nav>
+  <nav class="navbar navbar-light bg-light justify-content-between input-group">
+  <a class="navbar-brand">ABC Library Admin</a>
+  <a class='btn btn-danger' href="employee-logout.php">Logout</a>
+</nav>
+
+       
     <div class='container'>
         <div class='row'>
             <div class = 'col-md-12 mt-4'>
@@ -100,6 +121,7 @@ include('connect-db.php');
             </div>
         </div>
     </div>
+   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   </body>
 </html>

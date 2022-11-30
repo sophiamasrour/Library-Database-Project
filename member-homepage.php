@@ -35,7 +35,7 @@ if(!isset($_SESSION['user'])){
         print_r($_SESSION);
         ?>
 
-        <a class='btn btn-primary' href="logout.php">Logout</a>
+        <a class='btn btn-primary' href="member-logout.php">Logout</a>
 	</div>
 </body>
 </html>
