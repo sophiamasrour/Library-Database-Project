@@ -19,6 +19,16 @@ if(!isset($_SESSION['user'])){
 	<title>Welcome</title>
 </head>
 <body>
+
+<div>
+        <nav class="navbar navbar-light bg-light justify-content-between">
+            <a class="navbar-brand">ABC Library</a>
+            <form class="form-inline" action='search.php' method="POST">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name='searchButton'>Search</button>
+            </form>
+          </nav>
+    </div>
 	<div class="container">
         <?php
         echo "<h1> Welcome, ".$_SESSION['user']['name']." </h1>";
