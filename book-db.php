@@ -47,7 +47,7 @@ function getAllBooks()
 function deleteBook($id)
 {
     global $db;
-    $query = 'DELETE FROM books WHERE itemID=:id';
+    $query = 'DELETE FROM Books WHERE itemID=:id';
     $statement = $db->prepare($query);
     $statement->bindValue(':id', $id);
     $statement->execute();

@@ -42,7 +42,8 @@ include('connect-db.php')
                                     <label >Title</label>
                                     <input type="text" name='title' value="<?= $result->title; ?>" class="form-control">
                                 </div>
-                                <div class='mb-3'>
+                                <div class='mb-3'> 
+                                    <!-- may need to change -->
                                     <label >Author</label>
                                     <input type="text" name='author' value="<?= $result->author; ?>" class="form-control">
                                 </div>

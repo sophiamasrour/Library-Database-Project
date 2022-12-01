@@ -129,7 +129,7 @@ if(isset($_REQUEST['register_btn'])) {
             
 			<button type="submit" name="register_btn" class="btn btn-primary">Register Account</button>
 		</form>
-		Already Have an Account? <a class="register" href="index.php">Login Instead</a>
+		Already Have an Account? <a class="register" href="member-login.php">Login Instead</a>
 	</div>
 </body>
 </html>

@@ -101,7 +101,7 @@ if(!isset($_SESSION['user'])){
                                         <?php
                                         if (isset($_POST['search'])) {
                                             $keyword=$_POST['keyword'];
-                                            $query= $db->prepare("SELECT * FROM Books WHERE title like '%$keyword%' or author like '%$keyword%'");
+                                            $query= $db->prepare("SELECT * FROM Books WHERE title like '%$keyword%' or authorName like '%$keyword%'");
                                             $query->execute();
                                             $query->setFetchMode(PDO::FETCH_OBJ);
 
@@ -112,13 +112,13 @@ if(!isset($_SESSION['user'])){
                                              <tr>
                                                     <td><?=$row->itemID; ?></td>
                                                     <td><?=$row->title; ?></td>
-                                                    <td><?=$row->author; ?></td>
+                                                    <td><?=$row->authorName; ?></td>
                                                     <td><?=$row->quantityAvailable; ?></td>
                                                     <td><?=$row->totalQuantity; ?></td>
                                                     <td><?=$row->averageRating; ?></td>
                                                     <td><?=$row->numberOfPages; ?></td>
                                                     <td>
-                                                        <a href="checkout.php?itemID=<?= $row->itemID; ?>" class="btn btn-primary">Check Out</a>
+                                                        <a href="checkout.php?itemID=<?= $row->itemID; ?>"  class="btn btn-primary">Check Out</a>
                                                     </td>
                                                     <td>
                                                         <form action="checkout.php" method='POST'>
@@ -146,17 +146,19 @@ if(!isset($_SESSION['user'])){
                                                 <tr>
                                                     <td><?=$row->itemID; ?></td>
                                                     <td><?=$row->title; ?></td>
-                                                    <td><?=$row->author; ?></td>
+                                                    <td><?=$row->authorName; ?></td>
                                                     <td><?=$row->quantityAvailable; ?></td>
                                                     <td><?=$row->totalQuantity; ?></td>
                                                     <td><?=$row->averageRating; ?></td>
                                                     <td><?=$row->numberOfPages; ?></td>
                                                     <td>
-                                                        <a href="checkout.php.php?itemID=<?= $row->itemID; ?>" class="btn btn-primary">Check Out</a>
+                                                    <form action="checkout.php" method='POST'>
+                                                            <button type='submit' name="checkout-btn" value="<?= $row->itemID; ?>"class="btn btn-primary">Check out</button>
+                                                        </form>
                                                     </td>
                                                     <td>
-                                                        <form action="wishlist.pho" method='POST'>
-                                                            <button type='submit' name="wishlist_book" value="<?= $row->itemID; ?>"class="btn btn-primary">Add to Wishlist</button>
+                                                        <form action="wishlist.php" method='POST'>
+                                                            <button type='submit' name="wishlist-btn" value="<?= $row->itemID; ?>"class="btn btn-primary">Add to Wishlist</button>
                                                         </form>
                                                        
                                                     </td>
