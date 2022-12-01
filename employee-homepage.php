@@ -7,7 +7,7 @@ include('connect-db.php');
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>ABC Library Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <style>
         @media (min-width: 768px){
@@ -15,13 +15,18 @@ include('connect-db.php');
     width: 1% !important;
     }
     }
+        .navbar {
+            padding: 10px;
+            height: min-content;
+        }
+        .navbar-brand {
+            font-size: xx-large;
+        }
         .logout {
             margin:10px;
             left:250px;
             float:left;
         }
-
-
 
         .container {
             margin-top: 50px;
@@ -31,6 +36,10 @@ include('connect-db.php');
   <body>
   <nav class="navbar navbar-light bg-light justify-content-between input-group">
   <a class="navbar-brand">ABC Library Admin</a>
+  <form class="form-inline" action="employee-homepage.php" method="POST">
+    <input class="form-control mr-sm-2" type="search" name="keyword" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" name="search" type="submit">Search</button>
+  </form>
   <a class='btn btn-danger' href="employee-logout.php">Logout</a>
 </nav>
 
@@ -71,7 +80,40 @@ include('connect-db.php');
                                 <tr>
                                     <td>
                                         <?php
-                                        $query = "SELECT * FROM Books";
+                                        if (isset($_POST['search'])) {
+                                            $keyword=$_POST['keyword'];
+                                            $query= $db->prepare("SELECT * FROM Books WHERE title like '%$keyword%' or author like '%$keyword%'");
+                                            $query->execute();
+                                            $query->setFetchMode(PDO::FETCH_OBJ);
+
+                                            while($row=$query->fetch()) {
+
+                                                ?>
+
+                                             <tr>
+                                                    <td><?=$row->itemID; ?></td>
+                                                    <td><?=$row->title; ?></td>
+                                                    <td><?=$row->author; ?></td>
+                                                    <td><?=$row->quantityAvailable; ?></td>
+                                                    <td><?=$row->totalQuantity; ?></td>
+                                                    <td><?=$row->averageRating; ?></td>
+                                                    <td><?=$row->numberOfPages; ?></td>
+                                                    <td>
+                                                        <a href="book-edit.php?itemID=<?= $row->itemID; ?>" class="btn btn-primary">Edit</a>
+                                                    </td>
+                                                    <td>
+                                                        <form action="code.php" method='POST'>
+                                                            <button type='submit' name="delete_book" value="<?= $row->itemID; ?>"class="btn btn-danger">Delete</button>
+                                                        </form>
+                                                       
+                                                    </td>
+                                            </tr>
+                                            <?php
+                                            }
+                                        
+                                        } else {
+
+                                            $query = "SELECT * FROM Books";
                                         $statement = $db->prepare($query);
                                         $statement->execute();
                                         
@@ -111,6 +153,9 @@ include('connect-db.php');
                                             </tr>
                                             <?php
                                         }
+
+                                        }
+                                        
                                         ?>
                                     </td>
                                 </tr>
