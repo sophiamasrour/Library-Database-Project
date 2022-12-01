@@ -64,9 +64,16 @@ if(!isset($_SESSION['user'])){
     </div>
 	<div class="container">
         <?php
-        echo "<h1> Welcome, ".$_SESSION['user']['name']." </h1>";
+        echo "<h3> Welcome, ".$_SESSION['user']['name']." </h3>";
         ?>
 	</div>
+
+	<?php if(isset($_SESSION['message'])) : ?>
+                    <h5 class = 'alert alert-success'><?= $_SESSION['message']; ?></h5>
+                <?php
+                    unset($_SESSION['message']);
+                    endif;
+                ?>
 
 	<div class='container'>
         <div class='row'>
@@ -78,6 +85,8 @@ if(!isset($_SESSION['user'])){
                     unset($_SESSION['message']);
                     endif;
                 ?>
+
+				<h1>Book Inventory</h1>
                
                 <div class='card'>
                     <div class="card-body">
@@ -118,11 +127,13 @@ if(!isset($_SESSION['user'])){
                                                     <td><?=$row->averageRating; ?></td>
                                                     <td><?=$row->numberOfPages; ?></td>
                                                     <td>
-                                                        <a href="checkout.php?itemID=<?= $row->itemID; ?>"  class="btn btn-primary">Check Out</a>
+                                                    <form action="checkout.php" method='POST'>
+                                                            <button type='submit' name="checkout-btn" value="<?= $row->itemID; ?>"class="btn btn-primary">Check out</button>
+                                                        </form>
                                                     </td>
                                                     <td>
-                                                        <form action="checkout.php" method='POST'>
-                                                            <button type='submit' name="wishlist_book" value="<?= $row->itemID; ?>"class="btn btn-primary">Add to Wishlist</button>
+                                                        <form action="wishlist.php" method='POST'>
+                                                            <button type='submit' name="wishlist-btn" value="<?= $row->itemID; ?>"class="btn btn-primary">Add to Wishlist</button>
                                                         </form>
                                                        
                                                     </td>

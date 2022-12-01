@@ -48,6 +48,17 @@ function checkoutBook($userID, $itemID)
     $select_stmt ->closeCursor();
     }
 
+    if($select_stmt){
+        $_SESSION['message'] = 'Checked Out Successfully';
+        header('location:member-homepage.php');
+        exit(0);
+    }
+    else {
+        $_SESSION['message'] = 'Not Checked Out';
+        header('location:member-homepage.php');
+        exit(0);
+    }
+
 }
     catch(PDOException $e){
         echo $e->getMessage();
