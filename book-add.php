@@ -27,7 +27,7 @@
                                 </div>
                                 <div class='mb-3'>
                                     <label >Author</label>
-                                    <input type="text" name='author' class="form-control">
+                                    <input type="text" name='authorName' class="form-control">
                                 </div>
                                 <div class='mb-3'>
                                     <label >Quantity Available</label>

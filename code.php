@@ -70,19 +70,19 @@ if(isset($_POST['update_book_btn'])) {
 if(isset($_POST['save_book_btn'])){
 
     $title = $_POST['title'];
-    $author = $_POST['authorName'];
+    $authorName = $_POST['authorName'];
     $totalQuantity = $_POST['totalQuantity'];
     $quantityAvailable = $_POST['quantityAvailable'];
     $numberOfPages = $_POST['numberOfPages'];
 
-    $query = 'INSERT INTO Books (itemID, totalQuantity, title, quantityAvailable, averageRating, authorName , numberOfPages) VALUES (:itemID, :totalQuantity, :title, :quantityAvailable, :averageRating, :author, :numberOfPages)';
+    $query = 'INSERT INTO Books (itemID, totalQuantity, title, quantityAvailable, averageRating, authorName , numberOfPages) VALUES (:itemID, :totalQuantity, :title, :quantityAvailable, :averageRating, :authorName, :numberOfPages)';
     $query_run = $db->prepare($query);
-    $randomID = rand(1, 100000);
+    $randomID = rand(0, 1000000);
 
     $data = [
         ':itemID' => $randomID,
         ':title' => $title,
-        ':author' => $author,
+        ':authorName' => $authorName,
         ':totalQuantity' => $totalQuantity,
         ':quantityAvailable' => $quantityAvailable,
         ':numberOfPages' => $numberOfPages,
