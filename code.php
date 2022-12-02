@@ -31,19 +31,19 @@ if(isset($_POST['delete_book'])){
 if(isset($_POST['update_book_btn'])) {
     $itemID = $_POST['itemID'];
     $title = $_POST['title'];
-    $author = $_POST['authorName'];
+    $authorName = $_POST['authorName'];
     $totalQuantity = $_POST['totalQuantity'];
     $quantityAvailable = $_POST['quantityAvailable'];
     $numberOfPages = $_POST['numberOfPages'];
 
     try {
-        $query = 'UPDATE Books SET numberOfPages=:numberOfPages, title=:title, authorName =:author, totalQuantity=:totalQuantity, quantityAvailable=:quantityAvailable WHERE itemID=:itemID LIMIT 1';
+        $query = 'UPDATE Books SET numberOfPages=:numberOfPages, title=:title, authorName=:authorName, totalQuantity=:totalQuantity, quantityAvailable=:quantityAvailable WHERE itemID=:itemID LIMIT 1';
         $statement = $db->prepare($query);
 
         $data = [
             ':itemID' => $itemID,
             ':title' => $title,
-            ':author' => $authorName ,
+            ':authorName' => $authorName ,
             ':totalQuantity' => $totalQuantity,
             ':quantityAvailable' => $quantityAvailable,
             ':numberOfPages' => $numberOfPages

@@ -45,7 +45,7 @@ include('connect-db.php')
                                 <div class='mb-3'> 
                                     <!-- may need to change -->
                                     <label >Author</label>
-                                    <input type="text" name='author' value="<?= $result->author; ?>" class="form-control">
+                                    <input type="text" name='authorName' value="<?= $result->authorName; ?>" class="form-control">
                                 </div>
                                 <div class='mb-3'>
                                     <label >Quantity Available</label>
