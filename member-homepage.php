@@ -19,13 +19,34 @@ if(!isset($_SESSION['user'])){
 	<title>ABC Library</title>
 	<style>
 
-		.li {
-			margin: 20px;
+        .space-block-1 {
+            width:250px;
+        }
+
+        .space-block-2 {
+            width:500px;
+        }
+
+        .search-bar-button {
+            display: inline-block;
+        }
+
+		.nav-link {
+			font-size: larger;
 		}
+
+        .search-bar {
+            float:left;
+        }
+
+        .search-button {
+            float:right;
+        }
 
 		.navbar {
             padding: 10px;
             height: min-content;
+            margin-bottom: 25px;
         }
         .navbar-brand {
             font-size: xx-large;
@@ -50,18 +71,25 @@ if(!isset($_SESSION['user'])){
       <li class="nav-item">
         <a class="nav-link" href="member-wishlist.php">Wishlist</a>
       </li>
+      <li>
+       <div class='space-block-1'></div> 
 	  <li>
+	  <li class = 'search-bar-button'>
 	  <form class="form-inline" action="member-homepage.php" method="POST">
-    <input class="form-control mr-sm-2" type="search" name="keyword" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" name="search" type="submit">Search</button>
+    <input class="form-control mr-sm-2 search-bar" type="search" name="keyword" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0 search-button" name="search" type="submit">Search</button>
   </form>
 	  </li>
+      <li>
+       <div class='space-block-2'></div> 
 	  <li>
-	  <a class='btn btn-danger' href="employee-logout.php">Logout</a>
+	  <a class='btn btn-danger' style ='float:right' href="member-logout.php">Logout</a>
 	  </li>
-	  
+     
     </ul>
   </div>
+</nav>
+    </div>
 </nav>
     </div>
 	<div class="container">
@@ -104,6 +132,7 @@ if(!isset($_SESSION['user'])){
                                     <th>Number of Pages</th>
                                     <th>Check Out</th>
                                     <th>Wishlist</th>
+									<th>Return</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -135,13 +164,13 @@ if(!isset($_SESSION['user'])){
                                                     </td>
                                                     <td>
                                                         <form action="wishlist.php" method='POST'>
-                                                            <button type='submit' name="wishlist-btn" value="<?= $row->itemID; ?>"class="btn btn-primary">Add to Wishlist</button>
+                                                            <button type='submit' name="wishlist-btn" value="<?= $row->itemID; ?>"class="btn btn-dark">Add to Wishlist</button>
                                                         </form>
                                                        
                                                     </td>
                                                     <td>
                                                         <form action="returns.php" method='POST'>
-                                                            <button type='submit' name="returns-btn" value="<?= $row->itemID; ?>"class="btn btn-primary">Return this book</button>
+                                                            <button type='submit' name="returns-btn" value="<?= $row->itemID; ?>"class="btn btn-success">Return this book</button>
                                                         </form>
                                                        
                                                     </td>
@@ -177,13 +206,13 @@ if(!isset($_SESSION['user'])){
                                                     </td>
                                                     <td>
                                                         <form action="wishlist.php" method='POST'>
-                                                            <button type='submit' name="wishlist-btn" value="<?= $row->itemID; ?>"class="btn btn-primary">Add to Wishlist</button>
+                                                            <button type='submit' name="wishlist-btn" value="<?= $row->itemID; ?>"class="btn btn-dark">Add to Wishlist</button>
                                                         </form>
                                                        
                                                     </td>
                                                     <td>
                                                         <form action="returns.php" method='POST'>
-                                                            <button type='submit' name="returns-btn" value="<?= $row->itemID; ?>"class="btn btn-primary">Return this book</button>
+                                                            <button type='submit' name="returns-btn" value="<?= $row->itemID; ?>"class="btn btn-success">Return this book</button>
                                                         </form>
                                                        
                                                     </td>

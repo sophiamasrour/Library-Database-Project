@@ -22,10 +22,14 @@ include('connect-db.php');
         .navbar-brand {
             font-size: xx-large;
         }
+
+        .nav-link {
+            font-size: larger;
+        }
         .logout {
             margin:10px;
             left:250px;
-            float:left;
+            float:right;
         }
 
         .container {
