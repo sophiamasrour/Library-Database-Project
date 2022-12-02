@@ -95,6 +95,13 @@ if(!isset($_SESSION['user'])){
 	<div class="container">
         <?php
         echo "<h3> Welcome, ".$_SESSION['user']['name'].". You currently owe $".$_SESSION['user']['fine_total']." </h3>";
+        function displayFine($userID){
+            global $db;
+            $query= $db->prepare("SELECT fine_total FROM Users WHERE :userID = userID");
+            $query->bindValue(':userID', $userID);
+            $query->execute();
+            $query ->closeCursor();
+        }
         ?>
 	</div>
 
