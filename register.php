@@ -2,6 +2,10 @@
 include_once("connect-db.php");
 session_start();
 
+if(isset($_SESSION['user'])){
+    header('location:member-homepage.php');
+}
+
 if(isset($_REQUEST['register_btn'])) {
 
     $name = filter_var($_REQUEST['name'], FILTER_SANITIZE_STRING);
@@ -55,7 +59,8 @@ if(isset($_REQUEST['register_btn'])) {
         
                     )
                 ) {
-                    header("location: user-homepage.php");
+                
+                    header("location: member-homepage.php");
                 }
             }
         }

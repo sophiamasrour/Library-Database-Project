@@ -3,7 +3,7 @@ require_once 'connect-db.php';
 session_start();
 
 if(!isset($_SESSION['user'])){
-    header('location:landing-page.php');
+    header('location:member-login.php');
 }
 
 ?>
@@ -141,7 +141,7 @@ if(!isset($_SESSION['user'])){
                                         <?php
                                         if (isset($_POST['search'])) {
                                             $keyword=$_POST['keyword'];
-                                            $query= $db->prepare("SELECT * FROM Books WHERE title like '%$keyword%' or authorName like '%$keyword%'");
+                                            $query= $db->prepare("SELECT * FROM Books WHERE title like '%$keyword%' or authorName like '%$keyword%' or itemID like '%$keyword%'");
                                             $query->execute();
                                             $query->setFetchMode(PDO::FETCH_OBJ);
 
