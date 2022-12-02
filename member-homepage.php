@@ -44,10 +44,10 @@ if(!isset($_SESSION['user'])){
         <a class="nav-link" href="member-homepage.php">Home <span class="sr-only"></span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Checked Out</a>
+        <a class="nav-link" href="member-checkout.php">Checked Out</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Wishlist</a>
+        <a class="nav-link" href="member-wishlist.php">Wishlist</a>
       </li>
 	  <li>
 	  <form class="form-inline" action="member-homepage.php" method="POST">
