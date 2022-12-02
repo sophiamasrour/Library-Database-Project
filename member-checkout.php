@@ -55,11 +55,7 @@ if(!isset($_SESSION['user'])){
 	  <li>
 	  <a class='btn btn-danger' href="employee-logout.php">Logout</a>
 	  </li>
-      <li>
-	  <?php
-        echo "<h3> You currently owe: $".$_SESSION['user']['fine_total']." </h3>";
-        ?>
-	  </li>
+     
     </ul>
   </div>
 </nav>
