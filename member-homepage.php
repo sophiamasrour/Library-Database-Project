@@ -143,6 +143,12 @@ if(!isset($_SESSION['user'])){
                                                         </form>
                                                        
                                                     </td>
+                                                    <td>
+                                                        <form action="returns.php" method='POST'>
+                                                            <button type='submit' name="returns-btn" value="<?= $row->itemID; ?>"class="btn btn-primary">Return this book</button>
+                                                        </form>
+                                                       
+                                                    </td>
                                             </tr>
                                             <?php
                                             }
@@ -176,6 +182,12 @@ if(!isset($_SESSION['user'])){
                                                     <td>
                                                         <form action="wishlist.php" method='POST'>
                                                             <button type='submit' name="wishlist-btn" value="<?= $row->itemID; ?>"class="btn btn-primary">Add to Wishlist</button>
+                                                        </form>
+                                                       
+                                                    </td>
+                                                    <td>
+                                                        <form action="returns.php" method='POST'>
+                                                            <button type='submit' name="returns-btn" value="<?= $row->itemID; ?>"class="btn btn-primary">Return this book</button>
                                                         </form>
                                                        
                                                     </td>
