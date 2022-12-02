@@ -35,12 +35,21 @@ include('connect-db.php');
   </head>
   <body>
   <nav class="navbar navbar-light bg-light justify-content-between input-group">
-  <a class="navbar-brand">ABC Library Admin</a>
-  <form class="form-inline" action="employee-homepage.php" method="POST">
+  <a href='employee-homepage.php'class="navbar-brand">ABC Library Admin</a>
+  <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="fine.php">Fine<span class="sr-only"></span></a>
+      </li>
+    </ul>
+     
+      <form class="form-inline" action="employee-homepage.php" method="POST">
     <input class="form-control mr-sm-2" type="search" name="keyword" placeholder="Search" aria-label="Search">
     <button class="btn btn-outline-success my-2 my-sm-0" name="search" type="submit">Search</button>
   </form>
-  <a class='btn btn-danger' href="employee-logout.php">Logout</a>
+
+      <a class='btn btn-danger' href="employee-logout.php">Logout</a>
+   
+ 
 </nav>
 
        
@@ -82,7 +91,7 @@ include('connect-db.php');
                                         <?php
                                         if (isset($_POST['search'])) {
                                             $keyword=$_POST['keyword'];
-                                            $query= $db->prepare("SELECT * FROM Books WHERE title like '%$keyword%' or author like '%$keyword%'");
+                                            $query= $db->prepare("SELECT * FROM Books WHERE title like '%$keyword%' or authorName like '%$keyword%'");
                                             $query->execute();
                                             $query->setFetchMode(PDO::FETCH_OBJ);
 
@@ -93,7 +102,7 @@ include('connect-db.php');
                                              <tr>
                                                     <td><?=$row->itemID; ?></td>
                                                     <td><?=$row->title; ?></td>
-                                                    <td><?=$row->author; ?></td>
+                                                    <td><?=$row->authorName; ?></td>
                                                     <td><?=$row->quantityAvailable; ?></td>
                                                     <td><?=$row->totalQuantity; ?></td>
                                                     <td><?=$row->averageRating; ?></td>
@@ -127,7 +136,7 @@ include('connect-db.php');
                                                 <tr>
                                                     <td><?=$row->itemID; ?></td>
                                                     <td><?=$row->title; ?></td>
-                                                    <td><?=$row->author; ?></td>
+                                                    <td><?=$row->authorName; ?></td>
                                                     <td><?=$row->quantityAvailable; ?></td>
                                                     <td><?=$row->totalQuantity; ?></td>
                                                     <td><?=$row->averageRating; ?></td>

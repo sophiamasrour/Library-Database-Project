@@ -33,6 +33,7 @@ if(isset($_REQUEST['login-btn'])){
         $_SESSION['user']['name'] = $row["name"];
         $_SESSION['user']['email'] = $row["email"];
         $_SESSION['user']['userID'] = $row["userID"];
+        $_SESSION['user']['fine_total'] = $row["fine_total"];
 
         header("location: member-homepage.php");
       }

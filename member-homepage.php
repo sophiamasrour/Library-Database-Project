@@ -40,9 +40,6 @@ if(!isset($_SESSION['user'])){
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="member-homepage.php">Home <span class="sr-only"></span></a>
-      </li>
       <li class="nav-item">
         <a class="nav-link" href="member-checkout.php">Checked Out</a>
       </li>
@@ -57,6 +54,11 @@ if(!isset($_SESSION['user'])){
 	  </li>
 	  <li>
 	  <a class='btn btn-danger' href="employee-logout.php">Logout</a>
+	  </li>
+	  <li>
+	  <?php
+        echo "<h3> You currently owe: $".$_SESSION['user']['fine_total']." </h3>";
+        ?>
 	  </li>
     </ul>
   </div>

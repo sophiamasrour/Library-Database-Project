@@ -8,7 +8,7 @@
   </head>
   <body>
   <nav class="navbar navbar-light bg-light">
-        <span class="navbar-brand mb-0 h1" style="margin-left:10px; font-size:30px ">ABC Library Admin</span>
+  <a href='employee-homepage.php'class="navbar-brand">ABC Library Admin</a>
         </nav>
     <div class='container'>
         <div class='row'>
