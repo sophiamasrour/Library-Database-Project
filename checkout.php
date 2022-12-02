@@ -27,7 +27,9 @@ function checkoutBook($userID, $itemID)
     $select_stmt ->closeCursor();
     
     if($select_stmt->rowCount() == 0){
-        $errorMsg[]= "book not available";
+        $_SESSION['message'] = 'Unable to Checkout';
+        header('location:member-homepage.php');
+        exit(0);
     }
     else{
     $query = "INSERT INTO checks_out VALUES (:userID, :itemID)";
@@ -54,7 +56,7 @@ function checkoutBook($userID, $itemID)
         exit(0);
     }
     else {
-        $_SESSION['message'] = 'Not Checked Out';
+        $_SESSION['message'] = 'Unable to Checkout';
         header('location:member-homepage.php');
         exit(0);
     }
