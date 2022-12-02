@@ -111,6 +111,7 @@ if(isset($errorMsg)){
         </div>
 			<button type="submit" name="login-btn" class="btn btn-primary">Login</button>
     </form>
+    <a class = 'member-login' href="member-login.php">Login as a member</a>
 	</div>
 
 

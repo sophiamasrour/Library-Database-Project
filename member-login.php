@@ -121,6 +121,7 @@ if(isset($errorMsg)){
 			<button type="submit" name="login-btn" class="btn btn-primary">Login</button>
       No Account? <a class="register" href="register.php">Register Instead</a>
     </form>
+    <a href="employee-login.php">Login as Employee</a>
 	</div>
 
 
